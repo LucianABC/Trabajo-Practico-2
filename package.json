@@ -1,0 +1,19 @@
+{
+  "name": "tp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compumundohipermegared.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucianABC/Trabajo-Practico-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucianABC/Trabajo-Practico-2/issues"
+  },
+  "homepage": "https://github.com/LucianABC/Trabajo-Practico-2#readme"
+}
