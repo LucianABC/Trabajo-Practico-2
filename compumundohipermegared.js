@@ -23,10 +23,43 @@ const precios = [
 
 const sucursales = ['Centro', 'Caballito'];
 
+
+
+// 8.obtenerIdVenta(): Tiene que retornar un número aleatorio entre 100000000 y 999999999
+
+
+const obtenerIdVenta=()=>{
+  let id= Math.floor(Math.random)* (999999999-100000000)+100000000
+  return id
+}
+
+console.log( obtenerIdVenta()); // 386936759
+
+
+const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
+  let venta = [];
+  let id = obtenerIdVenta();
+  venta.push(id);
+
+  if(typeof dia!= "number" && mes!= "number" && año!= "number"){
+    throw "Ingresa la fecha en numeros"
+  } else if( vendedoras.indexOf(vendedora)== -1){
+    throw "El numero de vendedora no existe"
+  } else if( sucursales.indexOf(sucursal)== -1){
+    throw "El numero de sucursal no exite"
+  }
+ venta.push(dia, mes, año, vendedora, sucursal, componentes);
+ ventas.push(venta);
+ return venta
+};
+
+
 module.exports = {
-    vendedoras,
-    ventas,
-    precios,
-    sucursales
+  vendedoras,
+  ventas,
+  precios,
+  sucursales,
+  obtenerIdVenta,
+  agregarventas
 
 }

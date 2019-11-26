@@ -1,7 +1,6 @@
 {
   "name": "tp2",
   "version": "1.0.0",
-  "description": "",
   "main": "compumundohipermegared.js",
   "scripts": {
     "test": "jest"
@@ -15,5 +14,6 @@
   "bugs": {
     "url": "https://github.com/LucianABC/Trabajo-Practico-2/issues"
   },
-  "homepage": "https://github.com/LucianABC/Trabajo-Practico-2#readme"
+  "homepage": "https://github.com/LucianABC/Trabajo-Practico-2#readme",
+  "description": ""
 }
