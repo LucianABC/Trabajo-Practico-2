@@ -23,9 +23,6 @@ const precios = [
 
 const sucursales = ['Centro', 'Caballito'];
 
-
-
-
 // 8.obtenerIdVenta(): Tiene que retornar un número aleatorio entre 100000000 y 999999999
 
 
@@ -34,25 +31,25 @@ const obtenerIdVenta=()=>{
   return id
 }
 
-console.log( obtenerIdVenta()); // 386936759
-
-
 const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
-  let venta = [];
-  let id = obtenerIdVenta();
-  venta.push(id);
+    let venta = [];
+    let id = obtenerIdVenta();
+    venta.push(id);
 
-  if(typeof dia!= "number" && mes!= "number" && año!= "number"){
-    throw "Ingresa la fecha en numeros"
-  } else if( vendedoras.indexOf(vendedora)== -1){
-    throw "El numero de vendedora no existe"
-  } else if( sucursales.indexOf(sucursal)== -1){
-    throw "El numero de sucursal no exite"
-  }
- let costoTotal = precioMaquina(componentes)
- venta.push(dia, mes, año, vendedora, sucursal, componentes, costoTotal);
- ventas.push(venta);
- return venta
+    if(typeof dia!= "number" && mes!= "number" && año!= "number"){
+        throw "Ingresa la fecha en numeros"
+    } else if( vendedoras.indexOf(vendedora)== -1){
+        throw "El numero de vendedora no existe"
+    } else if( sucursales.indexOf(sucursal)== -1){
+        throw "El numero de sucursal no exite"
+    }
+
+    let costoTotal = precioMaquina(componentes)
+    
+    venta.push(dia, mes, año, vendedora, sucursal, componentes, costoTotal);
+    ventas.push(venta);
+    
+    return venta
 }
 
 const precioMaquina = (componentes) => {
@@ -65,7 +62,15 @@ const precioMaquina = (componentes) => {
         }
     }
     return montoTotal
+};
+/**** Estoy haciendo mal el reduce, no termino de cachar bien por qué pero bueno fijate viste */
 
+const ventaPromedio = () =>{
+  let promedio =  ventas.reduce((acumulador,venta)=>{
+        return acumulador + venta[7]
+    },0);
+    promedio = promedio / ventas.length
+    return promedio
 };
 
 
@@ -77,6 +82,7 @@ module.exports = {
   sucursales,
   obtenerIdVenta,
   agregarventas,
-  precioMaquina
-
+  precioMaquina,
+    ventaPromedio,
+    
 }
