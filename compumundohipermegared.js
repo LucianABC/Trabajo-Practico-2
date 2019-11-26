@@ -7,7 +7,7 @@ const ventas = [
   [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'] ],
   [ 100000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'] ],
   [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'] ]
-]
+];
 
 const precios = [
   [ 'Monitor GPRS 3000', 200 ],
@@ -22,6 +22,7 @@ const precios = [
 ];
 
 const sucursales = ['Centro', 'Caballito'];
+
 
 
 
@@ -48,18 +49,34 @@ const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
   } else if( sucursales.indexOf(sucursal)== -1){
     throw "El numero de sucursal no exite"
   }
- venta.push(dia, mes, año, vendedora, sucursal, componentes);
+ let costoTotal = precioMaquina(componentes)
+ venta.push(dia, mes, año, vendedora, sucursal, componentes, costoTotal);
  ventas.push(venta);
  return venta
+}
+
+const precioMaquina = (componentes) => {
+    let montoTotal = 0;
+    for (let componente of componentes) { 
+        for (let precio of precios) {
+            if (componente == precio[0]){
+                montoTotal += precio[1];
+            }
+        }
+    }
+    return montoTotal
+
 };
 
 
 module.exports = {
+
   vendedoras,
   ventas,
   precios,
   sucursales,
   obtenerIdVenta,
-  agregarventas
+  agregarventas,
+  precioMaquina
 
 }
