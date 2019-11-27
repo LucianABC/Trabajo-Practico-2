@@ -23,59 +23,75 @@ const precios = [
 
 const sucursales = ['Centro', 'Caballito'];
 
-// 8.obtenerIdVenta(): Tiene que retornar un número aleatorio entre 100000000 y 999999999
 
 
-const obtenerIdVenta=()=>{
-  let id= Math.floor(Math.random)* (999999999-100000000)+100000000
-  return id
-}
-
-const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
-    let venta = [];
-    let id = obtenerIdVenta();
-    venta.push(id);
-
-    if(typeof dia!= "number" && mes!= "number" && año!= "number"){
-        throw "Ingresa la fecha en numeros"
-    } else if( vendedoras.indexOf(vendedora)== -1){
-        throw "El numero de vendedora no existe"
-    } else if( sucursales.indexOf(sucursal)== -1){
-        throw "El numero de sucursal no exite"
-    }
-
-    let costoTotal = precioMaquina(componentes)
-    
-    venta.push(dia, mes, año, vendedora, sucursal, componentes, costoTotal);
-    ventas.push(venta);
-    
-    return venta
-}
+/* 1. precioMaquina(componentes): recibe un array de componentes y devuelve
+el precio de la máquina que se puede armar con esos componentes, que es la suma de los precios de cada componente incluido.*/
 
 const precioMaquina = (componentes) => {
-    let montoTotal = 0;
+  let montoTotal = 0;
     for (let componente of componentes) { 
-        for (let precio of precios) {
-            if (componente == precio[0]){
-                montoTotal += precio[1];
-            }
+      for (let precio of precios) {
+        if (componente == precio[0]){
+          montoTotal += precio[1];
         }
+      }
     }
-    return montoTotal
+  return montoTotal
 };
-/**** Estoy haciendo mal el reduce, no termino de cachar bien por qué pero bueno fijate viste */
+
+/*7. ventaPromedio(): Debe retornar el importe promedio por venta, como un número entero sin decimales redondeado siempre para abajo.*/
 
 const ventaPromedio = () =>{
-  let promedio =  ventas.reduce((acumulador,venta)=>{
-        return acumulador + venta[7]
-    },0);
-    promedio = promedio / ventas.length
+  let suma =  ventas.reduce((acumulador,venta)=>{
+    return acumulador + venta[7];
+  },0);
+
+    console.log(suma);
+    let promedio = suma / ventas.length
     return promedio
 };
 
 
-module.exports = {
+// 8.obtenerIdVenta(): Tiene que retornar un número aleatorio entre 100000000 y 999999999
 
+const obtenerIdVenta=()=>{
+  let id= Math.floor(Math.random()* (999999999-100000000))+100000000;
+  return id
+};
+
+/*9. agregarVentas(): ecibe por parámetro todos los datos de una venta, y los agrega en el array de ventas.
+ Al igual que las ventas que ya están previamente creadas, además de estos datos necesitamos agregar el primer dato que es un identificador de la venta.
+Para agregar este dato, tenemos que usar la función desarrollada en el punto anterior */
+
+const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
+  let venta = [];
+  let id = obtenerIdVenta();
+  venta.push(id);
+
+  if(typeof dia!= "number" && mes!= "number" && año!= "number"){
+    throw "Ingresa la fecha en numeros"
+  } else if( vendedoras.indexOf(vendedora)== -1){
+    throw "El numero de vendedora no existe"
+  } else if( sucursales.indexOf(sucursal)== -1){
+    throw "El numero de sucursal no exite"
+  };
+      
+  let costoTotal = precioMaquina(componentes);
+    
+  venta.push(dia, mes, año, vendedora, sucursal, componentes, costoTotal);
+  ventas.push(venta);
+  
+  return venta
+};
+
+
+
+
+
+
+
+module.exports = {
   vendedoras,
   ventas,
   precios,
@@ -83,6 +99,6 @@ module.exports = {
   obtenerIdVenta,
   agregarventas,
   precioMaquina,
-    ventaPromedio,
+  ventaPromedio,
     
 }
