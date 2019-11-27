@@ -40,6 +40,18 @@ const precioMaquina = (componentes) => {
   return montoTotal
 };
 
+/*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
+const ventasSucursal = (sucursal) => {
+  let ventasXsucursal = 0;
+  for (let venta of ventas) { 
+      if (sucursal == venta[5]){
+          ventasXsucursal += venta[7]
+      }
+  }
+  return ventasXsucursal
+};
+
+
 /*7. ventaPromedio(): Debe retornar el importe promedio por venta, como un número entero sin decimales redondeado siempre para abajo.*/
 
 const ventaPromedio = () =>{
@@ -99,5 +111,5 @@ module.exports = {
   agregarventas,
   precioMaquina,
   ventaPromedio,
-    
+  ventasSucursal,
 }

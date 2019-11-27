@@ -7,6 +7,7 @@ const agregarventas = funciones.agregarventas;
 const obtenerIdVenta = funciones.obtenerIdVenta;
 const precioMaquina = funciones.precioMaquina;
 const ventaPromedio = funciones.ventaPromedio;
+const ventasSucursal = funciones.ventasSucursal;
 
 beforeEach (() => {
      ventas.splice(6,1);
@@ -36,4 +37,8 @@ test('calcular monto', ()=>{
 
 test('calcular promedio de venta',()=>{
     expect(ventaPromedio()).toBe(353);
+});
+
+test('retorna monto vendido por sucursal', () => {
+    expect(ventasSucursal("Centro")).toBe(990);
 });
