@@ -14,14 +14,13 @@ beforeEach (() => {
     
 });
 
-console.log(ventas);
 
 
 
-/*El test este creo que esta mal porque antes daba bien y en realidad tiraba NaN kasjdhaksjda*/
+/*El test este creo que esta mal porque antes daba bien y en realidad tiraba NaN, chequear*/
 test("Obteneridventa",()=>{
     let id = obtenerIdVenta();
-    expect(typeof id).toBe("number");
+    expect(typeof id).toBe('number');
 });
 
 test("Agregar ventas a la lista de ventas",()=>{

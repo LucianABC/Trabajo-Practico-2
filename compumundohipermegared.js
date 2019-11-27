@@ -46,7 +46,6 @@ const ventaPromedio = () =>{
   let suma =  ventas.reduce((acumulador,venta)=>{
     return acumulador + venta[7];
   },0);
-    console.log(suma);
     let promedio = Math.floor(suma / ventas.length);
     return promedio
 };
