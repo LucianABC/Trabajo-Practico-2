@@ -1,12 +1,12 @@
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
-const ventas = [
-  [ 100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'] ],
-  [ 100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'] ],
-  [ 100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva'] ],
-  [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'] ],
-  [ 100000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'] ],
-  [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'] ]
+let ventas = [
+  [ 100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
+  [ 100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
+  [ 100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva'],370 ],
+  [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'],350 ],
+  [ 1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'], 300 ],
+  [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'],460 ]
 ];
 
 const precios = [
@@ -21,7 +21,7 @@ const precios = [
   [ 'RAM Quinston Fury', 230 ]
 ];
 
-const sucursales = ['Centro', 'Caballito'];
+const sucursales = ['Centro', 'Caballito', 'Recoleta'];
 
 
 
@@ -46,9 +46,11 @@ const ventaPromedio = () =>{
   let suma =  ventas.reduce((acumulador,venta)=>{
     return acumulador + venta[7];
   },0);
-
-    console.log(suma);
-    let promedio = suma / ventas.length
+  for (let venta of ventas){
+    console.log(venta);
+  }
+    
+    let promedio = Math.floor(suma / ventas.length);
     return promedio
 };
 
