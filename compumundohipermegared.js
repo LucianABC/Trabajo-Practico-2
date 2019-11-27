@@ -1,12 +1,12 @@
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
 let ventas = [
-  [ 100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
-  [ 100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
-  [ 100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva'],370 ],
-  [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'],350 ],
-  [ 1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'], 300 ],
-  [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'],460 ]
+  [100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
+  [100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
+  [100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva'],370 ],
+  [100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'],350 ],
+  [1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'], 300 ],
+  [100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'],460 ]
 ];
 
 const precios = [
@@ -46,10 +46,7 @@ const ventaPromedio = () =>{
   let suma =  ventas.reduce((acumulador,venta)=>{
     return acumulador + venta[7];
   },0);
-  for (let venta of ventas){
-    console.log(venta);
-  }
-    
+    console.log(suma);
     let promedio = Math.floor(suma / ventas.length);
     return promedio
 };
@@ -67,6 +64,7 @@ const obtenerIdVenta=()=>{
 Para agregar este dato, tenemos que usar la función desarrollada en el punto anterior */
 
 const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
+  
   let venta = [];
   let id = obtenerIdVenta();
   venta.push(id);
