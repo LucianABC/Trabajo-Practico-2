@@ -7,7 +7,11 @@ const agregarventas = funciones.agregarventas;
 const obtenerIdVenta = funciones.obtenerIdVenta;
 const precioMaquina = funciones.precioMaquina;
 const ventaPromedio = funciones.ventaPromedio;
+const cantidadVentas = funciones.cantidadVentas;
+const ventaVendedora = funciones.ventaVendedora;
 
+
+/*
 //Con el beforeEach no me funciona la funcion de agregarventas, sin el beforeEach la de ventaPromedio da mal)
 beforeEach (() => {
      ventas = [
@@ -20,11 +24,37 @@ beforeEach (() => {
     ];    
     
 });
+*/
 
+
+//////////////////////////////
+// punto 02
+
+test('Obtener cuantas veces se vendio el HDD Toyiva', () => {
+    cantidadVentas('HDD Toyiva');
+
+    expect ('HDD Toyiva').toBe(1);
+});
+
+
+
+//////////////////////////////////////////
+
+//PUNTO 03
+
+test ('Cantidad de ventas de la vendedora Ada',()=>{
+    ventaVendedora(ADA);
+
+    expect ('Ada').toBe(670);
+});
+
+///////////////////////////////////////////
 
 
 
 /*El test este creo que esta mal porque antes daba bien y en realidad tiraba NaN kasjdhaksjda*/
+
+/*
 test("Obteneridventa",()=>{
     let id = obtenerIdVenta();
     expect(typeof id).toBe("number");
@@ -46,3 +76,5 @@ test('calcular monto', ()=>{
 test('calcular promedio de venta',()=>{
     expect(ventaPromedio()).toBe(353);
 });
+
+*/

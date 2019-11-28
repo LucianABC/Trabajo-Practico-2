@@ -40,6 +40,67 @@ const precioMaquina = (componentes) => {
   return montoTotal
 };
 
+////////////////////////////////////////////////
+
+/* 2.cantidadVentasComponente(componente): recibe el nombre de un componente y 
+devuelve la cantidad de veces que fue vendido. 
+La lista de ventas no se pasa por parámetro, 
+se asume que está identificada por la variable ventas.*/
+
+const cantidadVentas = (producto) => {
+  
+  // tenes que buscar el componente en la lista de ventas
+    // hacer un bucle para que busque dentro del array
+
+  // tendrias que sumar todas las veces que aparece dicho componente?
+  // hacer un ERROR para cuando se ingresa cualquier otra cosa
+  // Que no se distinga de mayus y minus para mayor comodidad
+
+  //NO ME ESTA SALIENDO, LO DEJARE POR AQUI PARA MAÑANA
+
+  ventas.filter(encontrar => encontrar == producto);
+
+  return ventas.length;
+
+
+}
+
+//////////////////////////
+ /*
+PUNTO 03
+ ventasVendedora(nombre): recibe por parámetro 
+ el nombre de una vendedora 
+ y retorna el importe total de 
+ ventas realizadas por dicha vendedora.
+*/
+
+const ventaVendedora = (vendedora)=> {
+  // buscar vendedora en los arrays
+  // es el sub array 4
+  // devolver precio total
+  //sumar los totales de cada venta 
+
+  //NO LO TERMINE 
+
+  for(let i=0; i<ventas.length; i++){
+    if(vendedora=ventas[i][4]){
+      return ventas[i][7];
+    }
+    return 
+  }
+
+
+
+}
+
+///////////////////////////
+    
+  
+
+
+
+///////////////////////////////////////////////////
+
 /*7. ventaPromedio(): Debe retornar el importe promedio por venta, como un número entero sin decimales redondeado siempre para abajo.*/
 
 const ventaPromedio = () =>{
@@ -102,5 +163,7 @@ module.exports = {
   agregarventas,
   precioMaquina,
   ventaPromedio,
+  cantidadVentas,
+  ventaVendedora;
     
 }
