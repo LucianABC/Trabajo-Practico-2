@@ -58,17 +58,16 @@ const cantidadVentas = (producto) => {
 
   //NO ME ESTA SALIENDO, LO DEJARE POR AQUI PARA MAÑANA
 
- 
-  for(let i=0; i<ventas.length; i++){
+    const lista = ventas.filter(venta => {
+      return venta[6].indexOf(producto) > -1;
+    });
+    return lista.length;
 
-    const lista = ventas[i][6].filter(producto);
-
-    return lista;
   }
   
-  return lista.length;
+ 
 
-}
+
 
 //////////////////////////
  /*
