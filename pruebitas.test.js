@@ -31,15 +31,15 @@ beforeEach (() => {
 // punto 02
 
 test('Obtener cuantas veces se vendio el HDD Toyiva', () => {
-    cantidadVentas('HDD Toyiva');
 
-    expect ('HDD Toyiva').toBe(1);
+
+    expect (cantidadVentas('HDD Toyiva')).toBe(1);
 });
 
 
 
 //////////////////////////////////////////
-
+/*
 //PUNTO 03
 
 test ('Cantidad de ventas de la vendedora Ada',()=>{
@@ -47,7 +47,7 @@ test ('Cantidad de ventas de la vendedora Ada',()=>{
 
     expect ('Ada').toBe(670);
 });
-
+*/
 ///////////////////////////////////////////
 
 

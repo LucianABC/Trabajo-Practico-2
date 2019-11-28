@@ -58,10 +58,15 @@ const cantidadVentas = (producto) => {
 
   //NO ME ESTA SALIENDO, LO DEJARE POR AQUI PARA MAÑANA
 
-  ventas.filter(encontrar => encontrar == producto);
+ 
+  for(let i=0; i<ventas.length; i++){
 
-  return ventas.length;
+    const lista = ventas[i][6].filter(producto);
 
+    return lista;
+  }
+  
+  return lista.length;
 
 }
 
@@ -164,6 +169,6 @@ module.exports = {
   precioMaquina,
   ventaPromedio,
   cantidadVentas,
-  ventaVendedora;
+  ventaVendedora,
     
 }
