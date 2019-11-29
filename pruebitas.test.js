@@ -8,7 +8,7 @@ const obtenerIdVenta = funciones.obtenerIdVenta;
 const precioMaquina = funciones.precioMaquina;
 const ventaPromedio = funciones.ventaPromedio;
 const cantidadVentasComponente = funciones.cantidadVentasComponente;
-const ventaVendedora = funciones.ventaVendedora;
+const ventasVendedora = funciones.ventasVendedora;
 
 
 /*
@@ -33,24 +33,21 @@ beforeEach (() => {
 test('Obtener cuantas veces se vendio el HDD Toyiva', () => {
 
 
-    expect (cantidadVentas('HDD Toyiva')).toBe(1);
+    expect (cantidadVentasComponente('HDD Toyiva')).toBe(1);
 });
 
-test('poner un componente inexistente ej trambolico',()=>{
 
-})
 
 
 //////////////////////////////////////////
-/*
+
 //PUNTO 03
 
-test ('Cantidad de ventas de la vendedora Ada',()=>{
-    ventaVendedora(ADA);
+test ('Cantidad de ventas de la vendedora Grace',()=>{
 
-    expect ('Ada').toBe(670);
+    expect (ventasVendedora('Grace')).toBe(990);
 });
-*/
+
 ///////////////////////////////////////////
 
 

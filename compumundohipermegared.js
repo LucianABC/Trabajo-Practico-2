@@ -1,12 +1,12 @@
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
 let ventas = [
-  [ 100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
-  [ 100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
-  [ 100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva'],370 ],
-  [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'],350 ],
-  [ 1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'], 300 ],
-  [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'],460 ]
+  [ 100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500']],
+  [ 100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500']],
+  [ 100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva']],
+  [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200']],
+  [ 1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200']],
+  [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston']]
 ];
 
 const precios = [
@@ -48,28 +48,14 @@ La lista de ventas no se pasa por parámetro,
 se asume que está identificada por la variable ventas.*/
 
 const cantidadVentasComponente = (producto) => {
-  
-  // tenes que buscar el componente en la lista de ventas
-    // hacer un bucle para que busque dentro del array
-
-  // tendrias que sumar todas las veces que aparece dicho componente?
-  // hacer un ERROR para cuando se ingresa cualquier otra cosa
-  // Que no se distinga de mayus y minus para mayor comodidad
-
-  //NO ME ESTA SALIENDO, LO DEJARE POR AQUI PARA MAÑANA
-
+    
     const lista = ventas.filter(venta => {
       return venta[6].indexOf(producto) > -1;
     });
     return lista.length;
-
   }
-  
- 
 
-
-
-//////////////////////////
+////////////////////////////////////////////
  /*
 PUNTO 03
  ventasVendedora(nombre): recibe por parámetro 
@@ -78,26 +64,30 @@ PUNTO 03
  ventas realizadas por dicha vendedora.
 */
 
-const ventaVendedora = (vendedora)=> {
+const ventasVendedora = (vendedora)=> {
   // buscar vendedora en los arrays
   // es el sub array 4
-  // devolver precio total
-  //sumar los totales de cada venta 
+ // el array de esa vendedora, sumar los componentes
+ //hacer una suma total
 
-  //NO LO TERMINE 
+  //NO LO TERMINE
 
-  for(let i=0; i<ventas.length; i++){
-    if(vendedora=ventas[i][4]){
-      return ventas[i][7];
-    }
-    return 
-  }
+  const ventasPorVendedora  = ventas.filter(venta=>{
+    return venta[4] == vendedora;
+  });
 
+  let ventaGenerada = 0;
 
+    for (ventaPorVendedora of ventasPorVendedora){
+      ventaGenerada += precioMaquina(ventaPorVendedora[6]);
+
+ }
+
+  return ventaGenerada;
 
 }
 
-///////////////////////////
+/////////////////////////////////////////////////
     
   
 
@@ -168,6 +158,6 @@ module.exports = {
   precioMaquina,
   ventaPromedio,
   cantidadVentasComponente,
-  ventaVendedora,
+  ventasVendedora,
     
 }
