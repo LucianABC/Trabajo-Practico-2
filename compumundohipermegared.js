@@ -71,11 +71,12 @@ const ventaVendedora = (vendedora)=> {
 /*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
 const ventasSucursal = (sucursal) => {
   let ventasXsucursal = 0;
-  for (let venta of ventas) { 
-      if (sucursal == venta[5]){
-          ventasXsucursal += venta[7]
-      }
+  for (let venta of ventas ){
+    if (sucursal == venta[5]){
+     ventasXsucursal += precioMaquina(venta[6]);
+    }
   }
+  
   return ventasXsucursal
 };
 
