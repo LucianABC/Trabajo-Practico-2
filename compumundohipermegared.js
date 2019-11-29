@@ -67,7 +67,6 @@ const ventasVendedora = (vendedora)=> {
  // el array de esa vendedora, sumar los componentes
  //hacer una suma total
 
-  //NO LO TERMINE
 
   const ventasPorVendedora  = ventas.filter(venta=>{
     return venta[4] == vendedora;
@@ -86,6 +85,11 @@ const ventasVendedora = (vendedora)=> {
 
 /////////////////////////////////////////////////
 
+/*4. componenteMasVendido(): Devuelve el nombre del componente que más ventas tuvo históricamente. 
+El dato de la cantidad de ventas es el que indica la función cantidadVentasComponente*/
+
+
+
 /*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
 const ventasSucursal = (sucursal) => {
   let ventasXsucursal = 0;
@@ -94,8 +98,23 @@ const ventasSucursal = (sucursal) => {
           ventasXsucursal += venta[7]
       }
   }
-  return ventasXsucursal
+  return ventasXsucursal;
 };
+
+/*6. mejorVendedora(): Devuelve el nombre de la vendedora que más ingresos generó */
+
+const mejorVendedora = () => {
+let comparador = 0;
+let nombreVendedora;
+  for ( let vendedora of vendedoras){
+    let totalVendedora = ventasVendedora (vendedora);
+    if (comparador < totalVendedora){
+      comparador = totalVendedora;
+      nombreVendedora = vendedora;
+    }
+  }
+  return nombreVendedora;
+} 
 
 
 
@@ -159,6 +178,7 @@ module.exports = {
   ventaPromedio,
   cantidadVentasComponente,
   ventasVendedora,
+  mejorVendedora
     
 
 }

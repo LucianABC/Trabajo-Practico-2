@@ -10,6 +10,7 @@ const ventaPromedio = funciones.ventaPromedio;
 const ventasSucursal = funciones.ventasSucursal;
 const cantidadVentasComponente = funciones.cantidadVentasComponente;
 const ventasVendedora = funciones.ventasVendedora;
+const mejorVendedora = funciones.mejorVendedora;
 
 beforeEach (() => {
     if(ventas.length == 7) {
@@ -55,9 +56,11 @@ test('retorna monto vendido por sucursal', () => {
 });
 
 //6
+test("Vendedora con mas ingresos", ()=>{
+    expect(mejorVendedora()).toBe("Grace");
 
+});
 //7
-
 test('calcular promedio de venta',()=>{
     expect(ventaPromedio()).toBe(353);
 });
