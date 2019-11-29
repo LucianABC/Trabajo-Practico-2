@@ -54,20 +54,13 @@ const cantidadVentasComponente = (producto) => {
 
   //////////////////////////////////////////////////////////////////
 
- /* 3. ventasVendedora(nombre): recibe por parámetro 
->>>>>>> 4b807ad170d10d87c1de76ea264ec7ef195513a7
+ /* 3. ventasVendedora(nombre): recibe por parámetro
  el nombre de una vendedora 
  y retorna el importe total de 
  ventas realizadas por dicha vendedora.
 */
 
 const ventasVendedora = (vendedora)=> {
-  // buscar vendedora en los arrays
-  // es el sub array 4
- // el array de esa vendedora, sumar los componentes
- //hacer una suma total
-
-  //NO LO TERMINE
 
   const ventasPorVendedora  = ventas.filter(venta=>{
     return venta[4] == vendedora;
