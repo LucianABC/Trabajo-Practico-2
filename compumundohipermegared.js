@@ -26,7 +26,8 @@ const sucursales = ['Centro', 'Caballito', 'Recoleta'];
 
 
 /* 1. precioMaquina(componentes): recibe un array de componentes y devuelve
-el precio de la máquina que se puede armar con esos componentes, que es la suma de los precios de cada componente incluido.*/
+el precio de la máquina que se puede armar con esos componentes,
+ que es la suma de los precios de cada componente incluido.*/
 
 const precioMaquina = (componentes) => {
   let montoTotal = 0;
@@ -41,8 +42,7 @@ const precioMaquina = (componentes) => {
 };
 
 /* 2.cantidadVentasComponente(componente): recibe el nombre de un componente y 
-devuelve la cantidad de veces que fue vendido. 
-La lista de ventas no se pasa por parámetro, 
+devuelve la cantidad de veces que fue vendido. La lista de ventas no se pasa por parámetro, 
 se asume que está identificada por la variable ventas.*/
 
 const cantidadVentasComponente = (producto) => {
@@ -53,11 +53,8 @@ const cantidadVentasComponente = (producto) => {
 
   }
   
- /* 3. ventasVendedora(nombre): recibe por parámetro 
- el nombre de una vendedora 
- y retorna el importe total de 
- ventas realizadas por dicha vendedora.
-*/
+ /* 3. ventasVendedora(nombre): recibe por parámetro  el nombre de una vendedora 
+ y retorna el importe total de  ventas realizadas por dicha vendedora.*/
 
 const ventaVendedora = (vendedora)=> {
   for(let i=0; i<ventas.length; i++){
@@ -68,29 +65,31 @@ const ventaVendedora = (vendedora)=> {
   }
 }
 
-/*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
+/*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y 
+retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
+
 const ventasSucursal = (sucursal) => {
-  let ventasXsucursal = 0;
-  for (let venta of ventas ){
-    if (sucursal == venta[5]){
-     ventasXsucursal += precioMaquina(venta[6]);
+  let ventasXsucursal = ventas.reduce((acumulador,venta)=>{
+    if (sucursal == venta[5]){ 
+      acumulador +=  precioMaquina(venta[6])
     }
-  }
-  
+    return acumulador
+  } ,0);
+
   return ventasXsucursal
 };
 
 
-/*7. ventaPromedio(): Debe retornar el importe promedio por venta, como un número entero sin decimales redondeado siempre para abajo.*/
+/*7. ventaPromedio(): Debe retornar el importe promedio por venta,
+ como un número entero sin decimales redondeado siempre para abajo.*/
 
 const ventaPromedio = () =>{
-  let suma; 
-  for (let componente of precios) {
-    suma += (cantidadVentasComponente(componente[0]))*componente[1]
-  }
+  
+  let promedio = ventas.reduce((acumulador,venta)=>{
+    return acumulador +  precioMaquina(venta[6])
+  } ,0);
 
-  let promedio = Math.floor(suma / ventas.length);
-    return promedio
+    return (promedio=Math.floor(promedio / ventas.length));
 };
 
 
