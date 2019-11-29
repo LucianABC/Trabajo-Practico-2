@@ -1,12 +1,12 @@
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
 let ventas = [
-  [ 100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
-  [ 100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'],320 ],
-  [ 100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva'],370 ],
-  [ 100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200'],350 ],
-  [ 1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200'], 300 ],
-  [ 100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston'],460 ]
+  [100000000, 4, 2, 2019, 'Grace', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500'] ], //320,
+  [100000001, 1, 1, 2019, 'Ada', 'Centro', ['Monitor GPRS 3000', 'Motherboard ASUS 1500']], //320
+  [100000002, 2, 1, 2019, 'Grace', 'Caballito', ['Monitor ASC 543', 'Motherboard MZI', 'HDD Toyiva']], //370 
+  [100000003, 10, 1, 2019, 'Ada', 'Centro', ['Monitor ASC 543', 'Motherboard ASUS 1200']],//350
+  [1000004, 12, 1, 2019, 'Grace', 'Caballito', ['Monitor GPRS 3000', 'Motherboard ASUS 1200']], //300
+  [100000005, 21, 3, 2019, 'Hedy', 'Caballito', ['Monitor ASC 543', 'Motherboard ASUS 1200', 'RAM Quinston']] //460
 ];
 
 const precios = [
@@ -40,24 +40,12 @@ const precioMaquina = (componentes) => {
   return montoTotal
 };
 
-////////////////////////////////////////////////
-
 /* 2.cantidadVentasComponente(componente): recibe el nombre de un componente y 
 devuelve la cantidad de veces que fue vendido. 
 La lista de ventas no se pasa por parámetro, 
 se asume que está identificada por la variable ventas.*/
 
 const cantidadVentasComponente = (producto) => {
-  
-  // tenes que buscar el componente en la lista de ventas
-    // hacer un bucle para que busque dentro del array
-
-  // tendrias que sumar todas las veces que aparece dicho componente?
-  // hacer un ERROR para cuando se ingresa cualquier otra cosa
-  // Que no se distinga de mayus y minus para mayor comodidad
-
-  //NO ME ESTA SALIENDO, LO DEJARE POR AQUI PARA MAÑANA
-
     const lista = ventas.filter(venta => {
       return venta[6].indexOf(producto) > -1;
     });
@@ -65,57 +53,42 @@ const cantidadVentasComponente = (producto) => {
 
   }
   
- 
-
-
-
-//////////////////////////
- /*
-PUNTO 03
- ventasVendedora(nombre): recibe por parámetro 
+ /* 3. ventasVendedora(nombre): recibe por parámetro 
  el nombre de una vendedora 
  y retorna el importe total de 
  ventas realizadas por dicha vendedora.
 */
 
 const ventaVendedora = (vendedora)=> {
-  // buscar vendedora en los arrays
-  // es el sub array 4
-  // devolver precio total
-  //sumar los totales de cada venta 
-
-  //NO LO TERMINE 
-
   for(let i=0; i<ventas.length; i++){
-    if(vendedora=ventas[i][4]){
+    if(vendedora==ventas[i][4]){
       return ventas[i][7];
     }
     return 
   }
-
-
-
 }
 
-///////////////////////////
-    
-  
+/*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
+const ventasSucursal = (sucursal) => {
+  let ventasXsucursal = 0;
+  for (let venta of ventas) { 
+      if (sucursal == venta[5]){
+          ventasXsucursal += venta[7]
+      }
+  }
+  return ventasXsucursal
+};
 
-
-
-///////////////////////////////////////////////////
 
 /*7. ventaPromedio(): Debe retornar el importe promedio por venta, como un número entero sin decimales redondeado siempre para abajo.*/
 
 const ventaPromedio = () =>{
-  let suma =  ventas.reduce((acumulador,venta)=>{
-    return acumulador + venta[7];
-  },0);
-  for (let venta of ventas){
-    console.log(venta);
+  let suma; 
+  for (let componente of precios) {
+    suma += (cantidadVentasComponente(componente[0]))*componente[1]
   }
-    
-    let promedio = Math.floor(suma / ventas.length);
+
+  let promedio = Math.floor(suma / ventas.length);
     return promedio
 };
 
@@ -132,6 +105,7 @@ const obtenerIdVenta=()=>{
 Para agregar este dato, tenemos que usar la función desarrollada en el punto anterior */
 
 const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
+  
   let venta = [];
   let id = obtenerIdVenta();
   venta.push(id);
@@ -144,16 +118,13 @@ const agregarventas =(dia, mes, año, vendedora, sucursal, componentes=[])=>{
     throw "El numero de sucursal no exite"
   };
       
-  let costoTotal = precioMaquina(componentes);
+  
     
-  venta.push(dia, mes, año, vendedora, sucursal, componentes, costoTotal);
+  venta.push(dia, mes, año, vendedora, sucursal, componentes);
   ventas.push(venta);
   
   return venta
 };
-
-
-
 
 
 
@@ -167,7 +138,7 @@ module.exports = {
   agregarventas,
   precioMaquina,
   ventaPromedio,
-  cantidadVentasComponente,
   ventaVendedora,
-    
+  ventasSucursal,
+  cantidadVentasComponente
 }
