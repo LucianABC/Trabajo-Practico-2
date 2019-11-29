@@ -47,7 +47,7 @@ devuelve la cantidad de veces que fue vendido.
 La lista de ventas no se pasa por parámetro, 
 se asume que está identificada por la variable ventas.*/
 
-const cantidadVentas = (producto) => {
+const cantidadVentasComponente = (producto) => {
   
   // tenes que buscar el componente en la lista de ventas
     // hacer un bucle para que busque dentro del array
@@ -167,7 +167,7 @@ module.exports = {
   agregarventas,
   precioMaquina,
   ventaPromedio,
-  cantidadVentas,
+  cantidadVentasComponente,
   ventaVendedora,
     
 }

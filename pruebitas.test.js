@@ -7,7 +7,7 @@ const agregarventas = funciones.agregarventas;
 const obtenerIdVenta = funciones.obtenerIdVenta;
 const precioMaquina = funciones.precioMaquina;
 const ventaPromedio = funciones.ventaPromedio;
-const cantidadVentas = funciones.cantidadVentas;
+const cantidadVentasComponente = funciones.cantidadVentasComponente;
 const ventaVendedora = funciones.ventaVendedora;
 
 
@@ -36,6 +36,9 @@ test('Obtener cuantas veces se vendio el HDD Toyiva', () => {
     expect (cantidadVentas('HDD Toyiva')).toBe(1);
 });
 
+test('poner un componente inexistente ej trambolico',()=>{
+
+})
 
 
 //////////////////////////////////////////
