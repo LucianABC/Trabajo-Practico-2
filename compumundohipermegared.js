@@ -37,7 +37,7 @@ const precioMaquina = (componentes) => {
         }
       }
     }
-  return montoTotal
+  return montoTotal;
 };
 
 /* 2.cantidadVentasComponente(componente): recibe el nombre de un componente y 
@@ -46,7 +46,7 @@ La lista de ventas no se pasa por parámetro,
 se asume que está identificada por la variable ventas.*/
 
 const cantidadVentasComponente = (producto) => {
-  
+
     const lista = ventas.filter(venta => {
       return venta[6].indexOf(producto) > -1;
     });
