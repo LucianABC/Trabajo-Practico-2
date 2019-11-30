@@ -11,6 +11,7 @@ const ventasSucursal = funciones.ventasSucursal;
 const cantidadVentasComponente = funciones.cantidadVentasComponente;
 const ventasVendedora = funciones.ventasVendedora;
 const mejorVendedora = funciones.mejorVendedora;
+const componenteMasVendido = funciones.componenteMasVendido;
 
 beforeEach (() => {
     if(ventas.length == 7) {
@@ -49,6 +50,15 @@ test ('Cantidad de ventas de la vendedora Grace',()=>{
 });
 
 ////////////////////////////////
+
+// PUNTO 04
+
+test ('Componente con mas ventas',()=>{
+    expect(componenteMasVendido()).toBe('Monitor GPRS 3000');
+});
+
+
+/////////////////////////////////
 
 //5 
 test('retorna monto vendido por sucursal', () => {

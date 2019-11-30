@@ -46,6 +46,7 @@ La lista de ventas no se pasa por parámetro,
 se asume que está identificada por la variable ventas.*/
 
 const cantidadVentasComponente = (producto) => {
+  
     const lista = ventas.filter(venta => {
       return venta[6].indexOf(producto) > -1;
     });
@@ -55,18 +56,12 @@ const cantidadVentasComponente = (producto) => {
   //////////////////////////////////////////////////////////////////
 
  /* 3. ventasVendedora(nombre): recibe por parámetro 
->>>>>>> 4b807ad170d10d87c1de76ea264ec7ef195513a7
  el nombre de una vendedora 
  y retorna el importe total de 
  ventas realizadas por dicha vendedora.
 */
 
 const ventasVendedora = (vendedora)=> {
-  // buscar vendedora en los arrays
-  // es el sub array 4
- // el array de esa vendedora, sumar los componentes
- //hacer una suma total
-
 
   const ventasPorVendedora  = ventas.filter(venta=>{
     return venta[4] == vendedora;
@@ -74,20 +69,33 @@ const ventasVendedora = (vendedora)=> {
 
   let ventaGenerada = 0;
 
-    for (ventaPorVendedora of ventasPorVendedora){
-      ventaGenerada += precioMaquina(ventaPorVendedora[6]);
-
- }
-
+  for (ventaPorVendedora of ventasPorVendedora){
+    ventaGenerada += precioMaquina(ventaPorVendedora[6]);
+  }
   return ventaGenerada;
-
 }
 
 /////////////////////////////////////////////////
 
-/*4. componenteMasVendido(): Devuelve el nombre del componente que más ventas tuvo históricamente. 
-El dato de la cantidad de ventas es el que indica la función cantidadVentasComponente*/
+/*4. componenteMasVendido(): Devuelve el nombre 
+del componente que más ventas tuvo históricamente. 
+El dato de la cantidad de ventas es el que 
+indica la función cantidadVentasComponente*/
 
+const componenteMasVendido = () =>{
+
+  let componente;
+
+  for(let i=0; i<precios.length; i++){
+    if(cantidadVentasComponente(precios[i][0])>cantidadVentasComponente(componente)){
+      componente=precios[i][0];
+    }
+  }
+  return componente;
+};
+
+
+//////////////////////////////////////////////////
 
 
 /*5. ventasSucursal(sucursal): recibe por parámetro el nombre de una sucursal y retorna el importe de las ventas totales realizadas por una sucursal sin límite de fecha.*/
@@ -178,7 +186,8 @@ module.exports = {
   ventaPromedio,
   cantidadVentasComponente,
   ventasVendedora,
-  mejorVendedora
+  mejorVendedora,
+  componenteMasVendido,
     
 
 }
