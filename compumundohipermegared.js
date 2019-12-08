@@ -134,6 +134,7 @@ const ventaPromedio = () =>{
     return acumulador +  precioMaquina(venta[6])
   } ,0);
 
+  // No es necesario igualar a una variable, solo con retornar la funcion esta bien.
     return (promedio=Math.floor(promedio / ventas.length));
 };
 

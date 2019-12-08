@@ -24,7 +24,7 @@ beforeEach (() => {
 // 1.
 test('calcular monto', ()=>{
     expect(precioMaquina(["Monitor GPRS 3000", "Motherboard ASUS 1500"])).toBe(320);
-
+    // no corresponde a este test buscar la cantidad de ventas
     expect (cantidadVentasComponente('HDD Toyiva')).toBe(1);
 });
 
